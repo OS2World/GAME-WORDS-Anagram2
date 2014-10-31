@@ -1,0 +1,12 @@
+CC = gcc
+CFLAGS = -O2 -s -Zomf -Zsys
+
+default:	anagram2	docs
+
+docs:	anagram.ipf
+	ipfc /inf anagram
+	copy anagram.inf ..
+	del anagram.inf
+
+anagram2:	anagram.c
+	$(CC) $(CFLAGS) -o anagram.exe anagram.c
